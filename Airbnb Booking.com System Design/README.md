@@ -57,9 +57,9 @@
 - Not a very complicated service
 - It is just a CRUD service on the hotel data store.
 - Source of truth for hotel data.
-![img_2.png](img_2.png)
+- ![img_2.png](img_2.png)
 - Hotel DB Schema
-![img_3.png](img_3.png)
+- ![img_3.png](img_3.png)
 - In Hadoop cluster, we can run some AI Machine Learning Model on it to calculate optimal price for a room inside a hotel.
 - In the Hotel DB Schema we use the isActive flag everywhere to support soft-deletes.
 - There also maybe auditing tables to store audit information.
@@ -68,7 +68,7 @@
 
 ## Booking Service
 - Booking DB Schema
-![img_4.png](img_4.png)
+- ![img_4.png](img_4.png)
 - available_qty of rooms cannot be negative, so we cannot overbook.
 - One booking cannot have multiple room types.
 - We will have internal codes for room status: reserved, booked, cancelled and completed.
@@ -77,7 +77,7 @@
 - ![img_5.png](img_5.png)
 - When a booking is received by the booking service, it first checks the available rooms table whether that room is available or not.
 - If room is available, then we block the room temporarily.
-![img_6.png](img_6.png)
+- ![img_6.png](img_6.png)
 - If payment is success, room is booked, else it is released
 - We will insert record in booking table and reduce the number of available rooms
 - This is usually an ACID transaction. All of this is done as part of one transaction.
@@ -111,9 +111,9 @@
 
 ## Ensuring high availability and fault tolerance
 - We can spread our data centers across the globe.
-![img_7.png](img_7.png)
+- ![img_7.png](img_7.png)
 -  We look at the data in a hotel management system specific to the geography.
--  As per that we can set-up regions for each of our data-centers.
+-  As per that we can set up regions for each of our data-centers.
 -  We can ensure that data belonging to a particular region goes to the data centers allocated for that region.
 -  All data in DC1 is replicated to DC2. 
 -  If DC1 goes down, DNS can flip to DC2.
